@@ -32,23 +32,35 @@ for (let j = hacker2.length - 1; j >= 0; j--) {
 console.log(nameReversed);
 
 //3.3
-for (let a = 0; a < 12; a++) {
-    if (hacker1[a] < hacker2[a]) {
-        console.log("The driver's name goes first.");
-        break;
+function sortLexographically (driverName, navigatorName){
+    let longerName = 0;
+    if (driverName.length > navigatorName.length) {
+        longerName = driverName.length;
     }
-    else if (hacker1[a] > hacker2[a]) {
-        console.log("Yo, the navigator goes first, definitely.");
-        break;
+    else if (driverName.length < navigatorName.length) {
+        longerName = navigatorName.length;
     }
-    else if (hacker1[a] === hacker2[a])  {
-        continue;
-    }
-    else if (hacker1 === hacker2) {
-      console.log ("What?! You both have the same name?");
-      break;
+    for (let a = 0; a < longerName; a++) {
+        if (driverName[a] < navigatorName[a]) {
+            console.log("The driver's name goes first.");
+            break;
+        }
+        else if (driverName[a] > navigatorName[a]) {
+            console.log("Yo, the navigator goes first, definitely.");
+            break;
+        }
+        else if (driverName[a] === navigatorName[a])  {
+            continue;
+        }
+        else if (driverName === navigatorName) {
+          console.log ("What?! You both have the same name?");
+          break;
+        }
     }
 }
+sortLexographically ("Phillip","Phil")
+
+
 //Bonus 
 const longText = `Donec vel lectus sit amet mauris laoreet volutpat in nec lorem. Maecenas ultrices ut diam eget auctor. 
 Suspendisse congue sed odio commodo facilisis. Proin congue scelerisque condimentum. 
@@ -78,6 +90,14 @@ for (b = 0; b < longText.length; b++) {
 }
 let fixedWordCount = wordCount + 1;
 console.log(fixedWordCount);
+
+let etCount = 0;
+for (w = 0; w < longText.length; w++) {
+    if (longText[w]+longText[w+1]+longText[w+2]+longText[w+3] === " et ") {
+        etCount += 1;
+    }
+}
+console.log(etCount);
 
 
 function checkPalindrom (phraseToCheck){
