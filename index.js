@@ -87,25 +87,39 @@ function checkPalindrom (phraseToCheck){
             palindromeReversed += phraseToCheck[c];
         }
     }
-    console.log(palindromeReversed);
 
-    let palindromeNoSpace = "";
+    let palindromeNoSpaceNoComma1 = "";
     for (d = 0; d < phraseToCheck.length; d++) {
-        if (phraseToCheck[d] === " ") {
+        if (phraseToCheck[d] === " " || phraseToCheck[d] === ",") {
             continue;
         }
-        else (palindromeNoSpace += phraseToCheck[d]);
+        else (palindromeNoSpaceNoComma1 += phraseToCheck[d].toLowerCase());
     }
-    console.log(palindromeNoSpace);
 
-    if (palindromeNoSpace === palindromeReversed) {
-        console.log("This is a Palindrome");
+    let palindromeNoSpaceNoComma2 = "";
+    for (d = 0; d < palindromeReversed.length; d++) {
+        if (palindromeReversed[d] === " " || palindromeReversed[d] === ",") {
+            continue;
+        }
+        else (palindromeNoSpaceNoComma2 += palindromeReversed[d].toLowerCase());
+    }
+
+    if (palindromeNoSpaceNoComma1 === palindromeNoSpaceNoComma2) {
+        console.log(`${phraseToCheck} is a Palindrome`);
     }
     else {
-        console.log("This is not a Palindrome");
+        console.log(`${phraseToCheck} is not a Palindrome`);
     }
 }
 
-phrase1 = "taco cat"
+phrase1 = "taco cat";
 
-checkPalindrom (phrase1)
+checkPalindrom (phrase1);
+
+let phrase2 = "Amor, Roma";
+
+checkPalindrom (phrase2);
+
+let phrase3 ="Girafarig"
+checkPalindrom (phrase3);
+
