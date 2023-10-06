@@ -32,18 +32,21 @@ for (let j = hacker2.length - 1; j >= 0; j--) {
 console.log(nameReversed);
 
 //3.3
-for (let a = 0; a < nameUppercased.length; a++) {
-    if (nameUppercased[a] < nameReversed[a]) {
+for (let a = 0; a < 12; a++) {
+    if (hacker1[a] < hacker2[a]) {
         console.log("The driver's name goes first.");
         break;
     }
-    else if (nameUppercased[a] > nameReversed[a]) {
+    else if (hacker1[a] > hacker2[a]) {
         console.log("Yo, the navigator goes first, definitely.");
         break;
     }
-    else if (nameUppercased[a] === nameReversed[a]){
-        console.log("What?! You both have the same name?");
+    else if (hacker1[a] === hacker2[a])  {
         continue;
+    }
+    else if (hacker1 === hacker2) {
+      console.log ("What?! You both have the same name?");
+      break;
     }
 }
 //Bonus 
